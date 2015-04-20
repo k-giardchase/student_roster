@@ -22,9 +22,10 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <h2> Student List</h2>
+        <h2 ng-show='students.length && filtered.length'> Student List</h2>
+        <h2 ng-show='students.length && !filtered.length'>No matches</h2>
         <ul>
-          <li ng-repeat="item in students | filter:query">
+          <li ng-repeat="item in filtered = (students| filter:query)">
             <span ng-click='editing = true' ng-hide='editing'>
             {{item.name}} <a ng-click="deleteStudent(item)"><button type='submit' class='btn btn-danger btn-xs'>Expell</button></a>
             </span>
